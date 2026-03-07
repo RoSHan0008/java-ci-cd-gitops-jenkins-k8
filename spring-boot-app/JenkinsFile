@@ -15,17 +15,10 @@ pipeline {
       }
     }
     stage('Build and Test') {
-      steps {
-       sh 'pwd'
-                sh 'ls -ltr'
-                // Run the actual build commands
-                sh '''
-                    if [ -f pom.xml ]; then
-                        mvn clean package
-                    else
-                        cd spring-boot-app && mvn clean package
-                    fi
-                '''
+   steps {
+        sh 'ls -ltr'
+        // build the project and create a JAR file
+        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
       }
     }
     stage('Static Code Analysis') {
