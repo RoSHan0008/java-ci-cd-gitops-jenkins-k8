@@ -19,13 +19,7 @@ pipeline {
         sh 'pwd'
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh '''
-          if [ -f pom.xml ]; then
-            mvn clean package
-          else
-            cd spring-boot-app && mvn clean package
-          fi
-        '''
+        sh spring-boot-app && mvn clean package
       }
     }
     stage('Static Code Analysis') {
