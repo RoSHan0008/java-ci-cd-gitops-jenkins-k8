@@ -57,7 +57,7 @@ pipeline {
     stage('Update Deployment File') {
       agent any
       environment {
-        GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
+        GIT_REPO_NAME = "java-ci-cd-gitops-jenkins-k8"
         GIT_USER_NAME = "RoSHan0008"
       }
       steps {
