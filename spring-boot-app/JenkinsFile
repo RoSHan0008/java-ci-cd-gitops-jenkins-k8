@@ -3,6 +3,7 @@ pipeline {
 
   stages {
     stage('Checkout') {
+      agent any
       steps {
         // Clean workspace before checkout to avoid permission issues with stale build artifacts
         sh 'echo passed'
