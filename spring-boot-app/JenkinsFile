@@ -1,11 +1,6 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.9.6-eclipse-temurin-17'
-      // Keep these args so the agent can still run 'docker build' and 'docker push'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-    }
-  }
+  agent none
+
   stages {
     stage('Checkout') {
       steps {
@@ -14,6 +9,12 @@ pipeline {
       }
     }
     stage('Build and Test') {
+      agent {
+        docker {
+          image 'maven:3.9.6-eclipse-temurin-17'
+          args '--user root'
+        }
+      }
       steps {
         sh 'ls'
         // build the project and create a JAR file
@@ -21,6 +22,12 @@ pipeline {
       }
     }
     stage('Static Code Analysis') {
+      agent {
+        docker {
+          image 'maven:3.9.6-eclipse-temurin-17'
+          args '--user root'
+        }
+      }
       environment {
         SONAR_URL = "http://35.170.202.166:9000"
       }
@@ -31,6 +38,7 @@ pipeline {
       }
     }
     stage('Build and Push Docker Image') {
+      agent any
       environment {
         DOCKER_IMAGE = "roshankrsingh08/spring-boot-apps:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('docker')
@@ -44,8 +52,9 @@ pipeline {
           }
         }
       }
-    }
+    } 
     stage('Update Deployment File') {
+      agent any
       environment {
         GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
         GIT_USER_NAME = "RoSHan0008"
@@ -66,3 +75,5 @@ pipeline {
     }
   }
 }
+
+
