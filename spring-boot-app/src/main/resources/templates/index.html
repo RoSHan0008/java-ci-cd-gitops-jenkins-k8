@@ -2,24 +2,65 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CI/CD Pipeline - Modern Architecture</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Local CSS -->
     <link data-th-href="@{/css/main.css?{id}(id=${timestamp})}" rel="stylesheet">
-    <title>CI/CD Master Class By Abhishek Veeramalla</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Ultimate CI/CD Pipeline using Java</div></a>
+<div class="overlay"></div>
+
+<nav class="navbar">
+    <a class="navbar-brand" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        Java GitOps App
+    </a>
 </nav>
 
-<main role="main" class="container">
-    <div class="starter-template">
-        <h1 th:text="${title}">Default title.</h1>
-        <p th:text="${msg}">Default text.</p>
+<main class="container">
+    <div class="hero">
+        <div class="badge">v1.0.0 Live on Kubernetes</div>
+        <h1 class="gradient-text" th:text="${title}">Cloud-Native Spring Boot App</h1>
+        <p class="subtitle" th:text="${msg}">Managed via Jenkins CI and deployed using Argo CD in a full GitOps workflow.</p>
+        <div class="actions">
+            <a href="#" class="btn btn-primary">
+                Explore Pipeline
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#" class="btn btn-secondary">Documentation</a>
+        </div>
+    </div>
+    
+    <div class="features">
+        <div class="feature-card">
+            <div class="icon-wrapper" style="color: #60a5fa;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3>Jenkins CI</h3>
+            <p>Automated pulling, testing, security scanning, and Docker image creation triggered on every push.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper" style="color: #a855f7;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+            </div>
+            <h3>Argo CD GitOps</h3>
+            <p>Declarative continuous delivery directly pulling specifications from Git storage to Kubernetes environments.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-wrapper" style="color: #34d399;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3>Kubernetes Ready</h3>
+            <p>Orchestrating robust, highly available containerized stateless Java modules at massive scale.</p>
+        </div>
     </div>
 </main>
 
 <script data-th-src="@{/js/main.js}"></script>
 </body>
-
 </html>

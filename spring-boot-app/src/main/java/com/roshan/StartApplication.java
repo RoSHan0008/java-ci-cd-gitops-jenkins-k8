@@ -12,8 +12,8 @@ public class StartApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "I have successfuly built a sprint boot application using Maven");
-        model.addAttribute("msg", "This application is deployed on to Kubernetes using Argo CD");
+        model.addAttribute("title", "Welcome to Your Cloud-Native App");
+        model.addAttribute("msg", "Successfully built with Spring Boot & Maven, managed by Jenkins, and deployed to Kubernetes via Argo CD GitOps.");
         return "index";
     }
 
